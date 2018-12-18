@@ -7,10 +7,10 @@ DOSSIERWORDPRESS="/var/www/html/turcotte/"
 
 [ ! -d $DOSSIERSAUVEGARDE ] && mkdir -p ${DOSSIERSAUVEGARDE}
 
-ANCIENTHASH=$(head -1 ./hash-wordpress.txt | tail -1)
+ANCIENTHASH=$(head -1 /home/mezeeh/hash-wordpress.txt | tail -1)
 NOUVEAUHASH=$(find ${DOSSIERWORDPRESS} -type f -exec md5sum {} \; | sort -k 2 | md5sum)
 
-ANCIENNETAILLE=$(head -n 2 ./hash-wordpress.txt | tail -1)
+ANCIENNETAILLE=$(head -n 2 /home/mezeeh/hash-wordpress.txt | tail -1)
 NOUVELLETAILLE=$(du -sh $DOSSIERWORDPRESS | cut -f1)
 
 if [ "$NOUVEAUHASH" != "$ANCIENTHASH" ]

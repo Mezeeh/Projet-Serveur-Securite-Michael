@@ -1,0 +1,11 @@
+[Unit]
+Description=Service de surveillance SSH
+After=tlp-init.service
+
+[Service]
+Type=simple
+ExecStart=/home/mezeeh/surveillance-wordpress.sh
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
